@@ -19,7 +19,7 @@ chrome.extension.onMessage.addListener(function(request,sender,sendResponse) {
 });
 
 var fontme = function(codeSnip) {
-  alert("im in fontme"+codeSnip);
+  alert(codeSnip);
   chrome.tabs.getSelected(null,function(tab) {
     alert("i'm in fontme>tabsgetselect and my tab id is "+tab.id);
     chrome.tabs.sendMessage(tab.id, {

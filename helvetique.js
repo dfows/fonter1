@@ -3,9 +3,6 @@ chrome.extension.onMessage.addListener(function(request,sender,sendResponse) {
     case "helvetica":
       helvetique();
       break;
-    case "verdana":
-      verdanique();
-      break;
     case "courier":
       courieraza();
       break;
@@ -19,9 +16,7 @@ chrome.extension.onMessage.addListener(function(request,sender,sendResponse) {
 });
 
 var fontme = function(codeSnip) {
-  alert(codeSnip);
   chrome.tabs.getSelected(null,function(tab) {
-    alert("i'm in fontme>tabsgetselect and my tab id is "+tab.id);
     chrome.tabs.sendMessage(tab.id, {
       type: "fontchange",
       font: codeSnip
@@ -31,10 +26,6 @@ var fontme = function(codeSnip) {
 
 var helvetique = function() {
   return fontme("Helvetica Neue, Helvetica, Arial, sans-serif");
-}
-
-var verdanique = function() {
-  return "wtf bro verdana is fukin ugly";
 }
 
 var courieraza = function() {
